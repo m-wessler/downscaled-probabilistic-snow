@@ -81,7 +81,7 @@ naefs_inits = [12, 0]
 models = ['gefs', 'cmce']
 
 # Number of members in each model family
-mcount = 21
+mcount = {'gefs':31, 'cmce':21}
 
 # Hours to process
 # fhrstart must remain 0 but 

@@ -32,15 +32,15 @@ def load_mapdata(init_time, load_var, temp=True):
     
     dataset = []    
     for i, model in enumerate(models):
-        for j in range(mcount): 
+        for j in range(mcount[model]): 
             # Add future support for other model downloads here
             if ensemble == 'sref':
                 if j == 0:
                     member = model + '_ctl'
-                elif j <= (mcount-1)/len(models):
+                elif j <= (mcount[model]-1)/len(models):
                     member = model + '_n%i'%j
-                elif j > (mcount-1)/len(models):
-                    member = model + '_p%i'%(j-((mcount-1)/len(models)))
+                elif j > (mcount[model]-1)/len(models):
+                    member = model + '_p%i'%(j-((mcount[model]-1)/len(models)))
 
             elif ensemble == 'naefs':
                 if j == 0:
@@ -112,15 +112,15 @@ def load_plumedata(init_time, site, temp=True):
     
     _dataset = []    
     for i, model in enumerate(models):
-        for j in range(mcount): 
+        for j in range(mcount[model]): 
             # Add future support for other model downloads here
             if ensemble == 'sref':
                 if j == 0:
                     member = model + '_ctl'
-                elif j <= (mcount-1)/len(models):
+                elif j <= (mcount[model]-1)/len(models):
                     member = model + '_n%i'%j
-                elif j > (mcount-1)/len(models):
-                    member = model + '_p%i'%(j-((mcount-1)/len(models)))
+                elif j > (mcount[model]-1)/len(models):
+                    member = model + '_p%i'%(j-((mcount[model]-1)/len(models)))
 
             elif ensemble == 'naefs':
                 if j == 0:

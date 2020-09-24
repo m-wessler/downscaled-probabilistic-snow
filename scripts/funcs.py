@@ -77,15 +77,15 @@ def get_grids(init_time):
     dl_list = []
     dl_start = datetime.utcnow()
     for i, model in enumerate(models):
-        for j in range(mcount): 
+        for j in range(mcount[model]): 
             # Add future support for other model downloads here
             if ensemble == 'sref':
                 if j == 0:
                     member = model + '_ctl'
-                elif j <= (mcount-1)/len(models):
+                elif j <= (mcount[model]-1)/len(models):
                     member = model + '_n%i'%j
-                elif j > (mcount-1)/len(models):
-                    member = model + '_p%i'%(j-((mcount-1)/len(models)))
+                elif j > (mcount[model]-1)/len(models):
+                    member = model + '_p%i'%(j-((mcount[model]-1)/len(models)))
 
             elif ensemble == 'naefs':
                 if j == 0:
@@ -243,15 +243,15 @@ def gen_paths(init_time):
     # Read in the data files [one member at a time]
     member_paths = list()
     for i, model in enumerate(models):
-        for j in range(mcount):
+        for j in range(mcount[model]):
             # Add future support for other model downloads here
             if ensemble == 'sref':
                 if j == 0:
                     member = model + '_ctl'
-                elif j <= (mcount-1)/len(models):
+                elif j <= (mcount[model]-1)/len(models):
                     member = model + '_n%i'%j
-                elif j > (mcount-1)/len(models):
-                    member = model + '_p%i'%(j-((mcount-1)/len(models)))
+                elif j > (mcount[model]-1)/len(models):
+                    member = model + '_p%i'%(j-((mcount[model]-1)/len(models)))
 
             elif ensemble == 'naefs':
                 if j == 0:
@@ -1073,15 +1073,15 @@ def check_nc_exists(init_time, checkwhere='temp'):
     ncfound = []
     
     for i, model in enumerate(models):
-        for j in range(mcount): 
+        for j in range(mcount[model]): 
             # Add future support for other model downloads here
             if ensemble == 'sref':
                 if j == 0:
                     member = model + '_ctl'
-                elif j <= (mcount-1)/len(models):
+                elif j <= (mcount[model]-1)/len(models):
                     member = model + '_n%i'%j
-                elif j > (mcount-1)/len(models):
-                    member = model + '_p%i'%(j-((mcount-1)/len(models)))
+                elif j > (mcount[model]-1)/len(models):
+                    member = model + '_p%i'%(j-((mcount[model]-1)/len(models)))
 
             elif ensemble == 'naefs':
                 if j == 0:
