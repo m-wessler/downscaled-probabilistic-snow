@@ -169,10 +169,10 @@ def download_grib(params):
     elif ensemble == 'naefs':
         if family == 'gefs':
 
-            base = 'https://nomads.ncep.noaa.gov/cgi-bin/filter_gens_0p50.pl'
+            base = 'https://nomads.ncep.noaa.gov/cgi-bin/filter_gefs_atmos_0p50a.pl'
             mid = '?file=ge{}.t{:02d}z.pgrb2a.0p50.f{:03d}'.format(
                 member, ihr, fhr)
-            webdir = '&dir=%2Fgefs.{}%2F{:02d}%2Fpgrb2ap5'.format(date, ihr)
+            webdir = '&dir=%2Fgefs.{}%2F{:02d}%2Fatmos%2Fpgrb2ap5'.format(date, ihr)	    
 
         elif family == 'cmce':
             base = 'https://nomads.ncep.noaa.gov/cgi-bin/filter_cmcens.pl'
@@ -190,6 +190,8 @@ def download_grib(params):
         maxlat, minlat))
 
     url = base + mid + mvars + mlevs + subset + webdir
+    if 'gefs' in url:
+        print(url)
 
     # Download the grib to disk
     while not path.isfile(fpath):
@@ -205,12 +207,13 @@ def download_grib(params):
         try:
             fsize = stat(fpath).st_size
         except:
-            print('FILE NOT FOUND Data not yet available. Waiting', 
-                wait, 'seconds...')
+            print('FILE NOT FOUND Data not yet available. Waiting', wait, 'seconds...')
+            print(url)
         else:
             if (fsize > minsize):
                 pass
             else:
+                print(url)
                 print('FSIZE ERROR JUNK FILE Data not yet available. Waiting', 
                     wait, 'seconds...')
                 remove(fpath)
