@@ -190,8 +190,6 @@ def download_grib(params):
         maxlat, minlat))
 
     url = base + mid + mvars + mlevs + subset + webdir
-    if 'gefs' in url:
-        print(url)
 
     # Download the grib to disk
     while not path.isfile(fpath):
@@ -208,12 +206,10 @@ def download_grib(params):
             fsize = stat(fpath).st_size
         except:
             print('FILE NOT FOUND Data not yet available. Waiting', wait, 'seconds...')
-            print(url)
         else:
             if (fsize > minsize):
                 pass
             else:
-                print(url)
                 print('FSIZE ERROR JUNK FILE Data not yet available. Waiting', 
                     wait, 'seconds...')
                 remove(fpath)
