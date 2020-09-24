@@ -12,7 +12,7 @@
 
 module load anaconda3/2018.12
 
-SCRIPTDIR='/uufs/chpc.utah.edu/sys/pkg/ldm/oper/models/naefs/scripts'
+SCRIPTDIR='/uufs/chpc.utah.edu/common/home/u1070830/code/downscaled-probabilistic-snow/scripts'
 
 # cp "$SCRIPTDIR/naefsconfig.py" "$SCRIPTDIR/config.py"
 

@@ -26,16 +26,14 @@ mem_need = 3.2e9
 ##########
 
 # Full chpc path
-chpcpath = ('/uufs/chpc.utah.edu/sys/pkg/ldm/' +
-            'oper/models/naefs/')
+chpcpath = ('/uufs/chpc.utah.edu/common/home/u1070830/code/downscaled-probabilistic-snow/')
 
 # Parent grib/netCDF file directory 
-datadir = ('/uufs/chpc.utah.edu/common/home/horel-group/' +
-            'archive/')
+datadir = ('/scratch/general/lustre/u1070830/')
 
 # Parent grib/netCDF temp file directory
 # Set tmpdir = datadir if not using a temp dir
-tmpdir = ('/scratch/general/lustre/ldm/rt/')
+tmpdir = ('/scratch/general/lustre/u1070830/')
 
 # Image output directory
 imgdir = datadir
