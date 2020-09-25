@@ -311,8 +311,9 @@ def ensemble_plume(site, init_time, scale=0.75, temp=True):
                         init_time.strftime("%HZ %Y-%m-%d"), 
                         data.member.size, fontsize=14))
 
-    half = int(data.member.size / 2)
-
+    mid = [m.split('_')[0] for m in data.member_id.values]
+    half = np.where(np.isin(mid, 'cmce'))[0][0] #int(data.member.size / 2)
+    
     dtarr = to_datetime(data.time.values)
 
     for i, member in data.groupby('member'):

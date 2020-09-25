@@ -152,7 +152,7 @@ melt = 200
 # # # # # # # # # # # #
 
 # Figures to produce [True or False]
-make_maps = True
+make_maps = False
 make_plumes = True
 
 # Scale is relative to Trevor's old figures 
